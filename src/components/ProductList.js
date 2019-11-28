@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import Title from './Title';
+import {storeProducts} from '../data';
 import { ProductConsumer } from '../Context';
 
 class ProductList extends Component {
+
     render() {
         
         return (
@@ -14,9 +16,9 @@ class ProductList extends Component {
                         <div className="row">
                             <ProductConsumer>
                                 {value => {
-                                     return value.products.map (product=> {
-                                         return <Product key={product.id} product= {product}/>
-                                     })
+                                    return value.product.map(product=> {
+                                        return <Product key={product.id} product={product} />
+                                    })
                                 }}
                             </ProductConsumer>
                         </div>
